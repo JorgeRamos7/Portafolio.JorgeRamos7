@@ -1,0 +1,374 @@
+html{
+    box-sizing: border-box; /* para que le border y el padding que no afecte el ancho de mis elementos */
+    font-size: 62.5%; /* Para que 1rem sea igual a 10px*/
+    }
+
+    *,*:before,*:after{
+        box-sizing: inherit; /* va a empezar a heredar de sus antecesores*/
+    }
+
+
+
+body {
+    font-family: 'Fira Code', monospace;
+    font-size: 1.6rem;
+    line-height: 1rem; /*Hace referencia a los interlineados de los parrafos */
+    color: #24221a;
+    background-image: url(../img/fondo_sitio_web.jpeg);
+    background-size: 100% ;
+    background-attachment: fixed ;
+
+}
+
+*{
+
+    padding: 0;
+    margin: 0;
+}
+
+
+/* clases globales y reutilizables */
+
+.contenedor{
+    max-width: 120rem;
+    width: 95%;
+    margin: 0 auto; /*Es para centrar el contenido horizontalmente*/
+}
+
+       /* Referencia a todos los enlaces */
+       a{
+           text-decoration: none;
+       }
+
+
+
+       /* Referencia a todos los h1,h2,h3,h4 */
+       h1,h2,h3,h4{
+           font-family: 'Times New Roman', Times, serif;
+           font-size: bold;
+       }
+             h1{
+                 font-size: 4.8rem;          }
+             h2{
+                font-size: 4rem;
+            }h3{
+                font-size: 3.2rem;
+            }h4{
+                font-size: 2.8rem;
+            }
+                 
+            
+
+                 /* REferencia a las imagenes */
+                         img{
+                             width: 90%;
+                         }
+
+
+
+
+
+/* UTILIDADES PARA DIV-SECTION */
+.no-margin{
+    margin: 0%;
+}
+.no-padding{
+    padding: 0%;
+}
+.centrar-texto{
+    text-align: center;
+}
+
+
+
+
+
+     /*  Aqui empieza el diseño de toda mi barra del menu */
+
+
+
+           /* Hace referencia a todo el section con sus respectivas medidas */
+#menu{
+    width: 100%;  /*Ocupa todo el ancho de la pantalla*/
+    /* padding-top: 20px; */
+    font-size: 1.6rem;
+    margin: auto;
+    height: auto;  /* Hace referencia a todo el alto del navegador */
+    box-shadow: 1px 1px 5px rgb(141, 140, 140);  /* Aqui me muestra el pequeño sombrado para hacer la barra de navegacion */
+    position: fixed; /* anque baje el navegador este siempre se mantendra en la parte de arriba */
+    text-align: center; 
+    background-image: url(../img/fondo_sitio_web.jpeg);
+}
+           /* Hace referencia a TODOS MIS ENLACES */
+#menu ul a{
+    
+    color: rgba(0, 0, 0, 0.979);
+    font: bold 16px;
+    padding: 17px 20px 17px 20px;
+
+}
+           /* Hace referencia AL MOMENTO DE PASAR MI CURSOR EN EL MENU*/
+#menu ul a:hover{
+    background-color: black;
+    color: white;
+    font: bold;
+
+}
+
+
+
+.navegador_principal{
+    /* background-color: var(--gris); */
+   /* padding: .2rem; */
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   text-align: center;
+  
+}
+
+@media (min-width: 480px) {
+   .navegador_principal{
+       flex-direction: row;
+       justify-content: space-between;
+       
+       text-align: center;
+   }
+}
+
+     /*AQUI SE TERMINA TODA MI BARRA DE MENU*/
+
+
+     .presentacion{
+        text-align: center;
+        color: white;
+        background-color: black;
+        height: auto;
+        padding-top: 7rem;
+        padding-bottom: 2rem;
+        margin:auto
+       
+
+     }
+
+     .presentacion h2,h1{
+         margin-bottom: 3rem;
+         line-height: 3rem;
+         font-size: 3rem;
+         font-family: 'Fira Code', monospace;
+     }
+    
+     
+
+ /* Aqui inicia una seccion acerca de mi con una breve descripción de presentación */
+        .dos-columnas{
+            margin: 5rem;} 
+         
+       
+       .cont-acerca-de-mi {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              }
+
+              .img-about {
+                width: 70%;
+              }
+         
+       
+       .entrada-acerca-de-mi a {
+        display: inline-block;
+        background-color: black;
+        color: white;
+        padding: 20px 18px;
+        text-decoration: none;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-radius: 2rem;
+        margin: 3rem;
+        }
+        .entrada-acerca-de-mi p{
+            text-align: center;
+            font-size: 1.8rem; 
+            padding: 1rem;
+            line-height: 2.6rem;
+            padding-right: 0rem;
+
+        }
+     
+         /* Aqui se ajusta a tamaños mas pequeños */
+     
+       @media (min-width: 768px) {
+        .dos-columnas {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-columns: repeat(2, 50%);
+            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 2rem;
+        }
+       }
+
+
+ /* Aqui termina la seccion acerca de mi */
+
+
+
+
+
+
+
+/* Revisar muy bien este apartado
+Se concentran 3 columnas y parte del formulario */
+ .servicios, 
+ .formulario {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+
+
+/* Servicios que ofrezco */
+
+@media (min-width: 480px) {
+    .servicios{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+    
+        /* Son formas diferentes de hacer la separacion de los bloques
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 33.3% 33.3% 33.3%; */
+        column-gap: 4rem;
+        height: 1023pxs;
+    }
+  
+}
+
+/* Se trabaja con flex box para los inocnos de los servicios */
+
+.barra-servicios{
+    text-align: center;
+    color: white;
+    background-color: black;
+    height:auto;
+    font-size: 1rem;
+    padding:2rem;
+
+ }
+
+ .barra-servicios h1{
+  font-size: 3rem;
+  padding: 2rem;
+  line-height: 2.6rem;
+ }
+
+.servicio{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.servicio h3{
+margin: 1.5rem;
+text-align: center;
+font-size: 2.2rem;
+line-height: 2rem;
+}
+
+.servicio p{
+  font-size: 1.5rem;
+  line-height: 2.2rem;
+}
+
+.servicio .iconos{
+    height: 10rem;
+    width: 10rem;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+
+
+
+
+
+.formulario{
+    background-color: oldlace ;
+    width: min(60rem,100%); /*hace una comparativa para ajustar el cuadro */
+    margin:0 auto;
+    padding: 5rem;
+    border-radius: 1rem;
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+}
+
+.formulario fieldset{
+    border: none;   
+}
+
+
+
+.formulario legend{
+    text-align: center; 
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    line-height: 2rem;
+}
+/* Afecta al grid para tener dos columnas y 3 filas */
+@media (min-width: 480) {
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /*estoy indicando que son dos columnas*/
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem; /* aqui indico la sepracion de las columnas */
+    
+    }
+}
+
+.campo:nth-child(3),
+.campo:nth-child(4){
+    grid-column: 1/3;
+}
+
+
+.campo{
+  margin-bottom: 1rem;
+}
+
+.campo label{
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+.campo textarea{
+    height: 15rem;
+}
+
+.input-text{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+
+/* Aqui hago del tamaño del contenedor mi boton enviar que esta en el formulario  */
+.enviar .boton{
+    width: 100%;
+}
+
+
+
+.sombra{
+
+    box-shadow: 0px 40px 50px 20px rgba(112,112,112,0.54);
+
+    padding: 2rem;
+    border-radius: 1rem ;
+    }
